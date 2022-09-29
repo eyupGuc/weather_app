@@ -1,6 +1,6 @@
 const fetchWeather = async (name) => {
   const res = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=605ed0a830c5efab159b66090cd503a6&units=metric`
+    `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=e815a95d20a585101c219591fd494992&units=metric`
   );
   const data = await res.json();
   //   console.log(data);
@@ -26,20 +26,16 @@ const updateDOM = (data) => {
   <img src="${
     "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x" + ".png"
   }" class="card-img-top" alt="...">
-  <div class="card-body">
+  <div class="card-body text-center">
     <h5 class="card-title">${data.name}</h5>
     <p class="card-text">${data.weather[0].description}</p>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Temperature: ${data.main.temp}°C</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">Humidity: %${data.main.humidity}</li>
+    <li class="list-group-item">Pressure: ${data.main.pressure} hPa</li>
   </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
+ 
   `;
     count++;
   } else {
